@@ -1,7 +1,12 @@
 <div id="main-grid">
-  <textarea #input id="input"></textarea>
+  <textarea #input id="input">Hallo, dit is een zin die ik wil transformeren..!</textarea>
   <button type="button" class="btn btn-primary" (click)="onTransform()">Transformeren</button>
-  <div id="output"><span class="char" *ngFor="let c of outputChars">{{c}}</span></div>
+  <div id="output">
+    <ng-container class="char" *ngFor="let z of zinsdelen">
+      <app-woord *ngIf="z.isWoord" [woord]="z"></app-woord>
+      <app-punctuation *ngIf="z.isPunctuation" [punctuation]="z"></app-punctuation>
+    </ng-container>
+  </div>
 </div>
 
 
