@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Verhaal } from '../models/verhaal';
+import { Verhaal } from '../../models/verhaal';
 
 @Component({
   selector: 'app-verhaal',

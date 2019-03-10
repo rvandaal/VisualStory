@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Woord } from '../models/woord';
+import { Component, Input } from '@angular/core';
+import { Woord } from '../../models/woord';
 
 @Component({
   selector: 'app-woord',

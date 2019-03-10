@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormsModule, FormControl, FormControlName, FormGroup } from '@angular/forms';
+import { FormControlName, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-checkbox',

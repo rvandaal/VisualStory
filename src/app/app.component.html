@@ -1,6 +1,6 @@
 <div id="main-grid">
   <div id="text-area-grid" [formGroup]="form">
-    <textarea #input id="input" formControlname="inputText">Hallo, dit is een zin die ik wil transformeren..!</textarea>
+    <app-textarea #input id="input" [formControl]="form.controls.inputText"></app-textarea>
     <div id="output">
       <app-verhaal [verhaal]="outputVerhaal"></app-verhaal>
     </div>

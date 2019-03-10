@@ -6,6 +6,8 @@ export class Woord extends Zinsdeel {
 
     public letters: Letter[];
 
+    fontsize = '1em';
+
     constructor(woord: string[]) {
         super();
         this.letters = woord.map(l => new Letter(l));
@@ -19,8 +21,8 @@ export class Woord extends Zinsdeel {
         return false;
     }
 
-    get fontsize() {
-        const size = 1 + this.letters.length * 0.1;
-        return `${size}em`;
-    }
+    // get fontsize() {
+    //     const size = 1 + this.letters.length * 0.1;
+    //     return `${size}em`;
+    // }
 }

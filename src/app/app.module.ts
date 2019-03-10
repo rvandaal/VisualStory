@@ -3,11 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { WoordComponent } from './woord/woord.component';
-import { LetterComponent } from './letter/letter.component';
-import { PunctuationComponent } from './punctuation/punctuation.component';
-import { CheckboxComponent } from './checkbox/checkbox.component';
-import { VerhaalComponent } from './verhaal/verhaal.component';
+import { WoordComponent } from './components/woord/woord.component';
+import { LetterComponent } from './components/letter/letter.component';
+import { PunctuationComponent } from './components/punctuation/punctuation.component';
+import { CheckboxComponent } from './components/checkbox/checkbox.component';
+import { VerhaalComponent } from './components/verhaal/verhaal.component';
+import { TextareaExpandedComponent } from './components/textarea/textarea-expanded-full.components';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { VerhaalComponent } from './verhaal/verhaal.component';
     LetterComponent,
     PunctuationComponent,
     CheckboxComponent,
-    VerhaalComponent
+    VerhaalComponent,
+    TextareaExpandedComponent
   ],
   imports: [
     BrowserModule,

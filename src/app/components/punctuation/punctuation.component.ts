@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Punctuation } from '../models/punctuation';
+import { Punctuation } from '../../models/punctuation';
 
 @Component({
   selector: 'app-punctuation',

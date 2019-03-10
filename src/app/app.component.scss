@@ -16,12 +16,13 @@
 #input, #output {
     flex: 1 1 300px;
     margin: 20px;
-    padding: 20px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 #output {
     border: 1px solid gray;
+    padding: 20px;
+    margin-top: 60px;
 }
 
 #config-grid {

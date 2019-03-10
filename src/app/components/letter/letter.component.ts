@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Letter } from '../models/letter';
+import { Letter } from '../../models/letter';
 
 @Component({
   selector: 'app-letter',
