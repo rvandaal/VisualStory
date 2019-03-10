@@ -1,18 +1,20 @@
 import { Verhaal } from './../models/verhaal';
 import { IBaseTransform } from './base.transform';
-import { FormControl, AbstractControl } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { Woord } from '../models/woord';
 
 export class LangereWoordenGrotereLetters implements IBaseTransform {
 
     name = 'langereWoordenGrotereLetters';
 
-    private _ac: AbstractControl = new FormControl(false);
-    get control(): AbstractControl {
+    private _ac = new FormControl(false);
+    get control() {
         return this._ac;
     }
 
     public transform(verhaal: Verhaal): Verhaal {
+        if (!this.control.value) { return verhaal; }
+
         verhaal.zinsdelen.forEach(z => {
             const woord = z as Woord;
             if (z.isWoord) {
