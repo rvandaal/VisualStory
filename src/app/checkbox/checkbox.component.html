@@ -1,4 +1,4 @@
-<div class="custom-control custom-checkbox">
-  <input type="checkbox" class="custom-control-input" id="{{id}}" [(ngModel)]="isChecked">
+<form *ngIf="form" class="custom-control custom-checkbox" [formGroup]="form">
+  <input type="checkbox" class="custom-control-input" id="{{id}}" [formControlName]="controlName">
   <label class="custom-control-label" for="{{id}}"><ng-content></ng-content></label>
-</div>
+</form>

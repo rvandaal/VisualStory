@@ -1,4 +1,4 @@
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -7,6 +7,7 @@ import { WoordComponent } from './woord/woord.component';
 import { LetterComponent } from './letter/letter.component';
 import { PunctuationComponent } from './punctuation/punctuation.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
+import { VerhaalComponent } from './verhaal/verhaal.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +15,13 @@ import { CheckboxComponent } from './checkbox/checkbox.component';
     WoordComponent,
     LetterComponent,
     PunctuationComponent,
-    CheckboxComponent
+    CheckboxComponent,
+    VerhaalComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

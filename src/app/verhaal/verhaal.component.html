@@ -1,0 +1,6 @@
+<div *ngIf="verhaal">
+  <ng-container class="char" *ngFor="let z of verhaal.zinsdelen">
+    <app-woord *ngIf="z.isWoord" [woord]="z"></app-woord>
+    <app-punctuation *ngIf="z.isPunctuation" [punctuation]="z"></app-punctuation>
+  </ng-container>
+</div>

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormControl, FormControlName, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-checkbox',
@@ -11,20 +11,15 @@ export class CheckboxComponent {
   static i = 0;
   id: string;
 
-  private _isChecked: boolean;
+  @Input()
+  form: FormGroup;
 
-  get isChecked() {
-    return this._isChecked;
-  }
-
-  set (value: boolean) {
-    this._isChecked = value;
-    alert(' done');
-    // ...
-  }
+  @Input()
+  controlName: FormControlName;
 
   constructor() {
     this.id = 'checkbox' + (CheckboxComponent.i++);
+    console.log('form: ', this.form);
   }
 
 }
