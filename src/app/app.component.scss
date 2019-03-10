@@ -2,19 +2,31 @@
 
 #main-grid {
     display: flex;
-    align-items: center;
+    align-items: stretch;
+    font-family: arial;
+}
+
+#text-area-grid {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 
 #input, #output {
-    width: 800px;
-    height: 800px;
+    flex: 1 1 300px;
     margin: 20px;
     padding: 20px;
-    font-family: Arial, Helvetica, sans-serif
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #output {
     border: 1px solid gray;
+}
+
+#config-grid {
+    flex: 0 0 500px;
+    padding: 20px;
 }
 
 button {

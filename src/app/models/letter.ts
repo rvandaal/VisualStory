@@ -1,5 +1,9 @@
 export class Letter {
-    constructor(public text: string) {
+    klinkers = /[eaoui]/;
 
+    get isKlinker() {
+        return this.klinkers.test(this.text);
     }
+
+    constructor(public text: string) { }
 }

@@ -1,12 +1,18 @@
 <div id="main-grid">
-  <textarea #input id="input">Hallo, dit is een zin die ik wil transformeren..!</textarea>
-  <button type="button" class="btn btn-primary" (click)="onTransform()">Transformeren</button>
-  <div id="output">
-    <ng-container class="char" *ngFor="let z of zinsdelen">
-      <app-woord *ngIf="z.isWoord" [woord]="z"></app-woord>
-      <app-punctuation *ngIf="z.isPunctuation" [punctuation]="z"></app-punctuation>
-    </ng-container>
+  <div id="text-area-grid">
+    <textarea #input id="input">Hallo, dit is een zin die ik wil transformeren..!</textarea>
+    <div id="output">
+      <ng-container class="char" *ngFor="let z of zinsdelen">
+        <app-woord *ngIf="z.isWoord" [woord]="z"></app-woord>
+        <app-punctuation *ngIf="z.isPunctuation" [punctuation]="z"></app-punctuation>
+      </ng-container>
+    </div>
   </div>
+  <div id="config-grid">
+    <button type="button" class="btn btn-primary" (click)="onTransform()">Transformeren</button>
+    <!-- Default unchecked -->
+    <br>
+    <br>
+    <app-checkbox>Maak langere woorden groter</app-checkbox>
+    <app-checkbox>Verwijder klinkers</app-checkbox>
 </div>
-
-

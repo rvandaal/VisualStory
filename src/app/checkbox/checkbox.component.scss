@@ -1,0 +1,9 @@
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+div {
+    margin: 5px;
+}
+
+label::before, label::after {
+    top: 0 !important;
+}

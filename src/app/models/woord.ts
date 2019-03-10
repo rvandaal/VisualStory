@@ -1,5 +1,6 @@
 import { Zinsdeel } from './zinsdeel';
 import { Letter } from './letter';
+import { stringify } from '@angular/core/src/render3/util';
 
 export class Woord extends Zinsdeel {
 
@@ -16,5 +17,10 @@ export class Woord extends Zinsdeel {
 
     get isPunctuation() {
         return false;
+    }
+
+    get fontsize() {
+        const size = 1 + this.letters.length * 0.1;
+        return `${size}em`;
     }
 }
