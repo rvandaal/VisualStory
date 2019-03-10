@@ -1,20 +1,13 @@
 import { Verhaal } from './../models/verhaal';
-import { IBaseTransform } from './base.transform';
-import { FormControl } from '@angular/forms';
 import { Woord } from '../models/woord';
+import { CheckBoxBaseTransform } from './checkbox-base.transform';
 
-export class LangereWoordenGrotereLetters implements IBaseTransform {
+export class LangereWoordenGrotereLettersTransform extends CheckBoxBaseTransform {
 
     name = 'langereWoordenGrotereLetters';
+    description = 'Maak langere woorden groter';
 
-    private _ac = new FormControl(false);
-    get control() {
-        return this._ac;
-    }
-
-    public transform(verhaal: Verhaal): Verhaal {
-        if (!this.control.value) { return verhaal; }
-
+    protected internalTransform(verhaal: Verhaal): Verhaal {
         verhaal.zinsdelen.forEach(z => {
             const woord = z as Woord;
             if (z.isWoord) {

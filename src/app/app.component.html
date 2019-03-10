@@ -1,14 +1,10 @@
 <div id="main-grid">
   <div id="text-area-grid" [formGroup]="form">
-    <app-textarea #input id="input" [formControl]="form.controls.inputText"></app-textarea>
+    <app-textarea #input id="input" [formControl]="form.get('inputText')"></app-textarea>
     <div id="output">
       <app-verhaal [verhaal]="outputVerhaal"></app-verhaal>
     </div>
   </div>
   <form id="config-grid">
-    <button type="button" class="btn btn-primary" (click)="onTransform()">Transformeren</button>
-    <br>
-    <br>
-    <app-checkbox [form]="form" [controlName]="'langereWoordenGrotereLetters'">Maak langere woorden groter</app-checkbox>
-    <app-checkbox>Verwijder klinkers</app-checkbox>
+    <app-checkbox *ngFor="let t of transformaties" [form]="form" [controlName]="t.name">{{t.description}}</app-checkbox>
 </form>

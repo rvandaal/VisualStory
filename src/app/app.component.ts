@@ -1,4 +1,5 @@
-import { LangereWoordenGrotereLetters } from './transforms/langere-woorden-grotere-letters.transform';
+import { VerwijderKlinkersTransform } from './transforms/verwijder-klinkers.transform';
+import { LangereWoordenGrotereLettersTransform } from './transforms/langere-woorden-grotere-letters.transform';
 import { Component} from '@angular/core';
 import { Punctuation } from './models/punctuation';
 import { Woord } from './models/woord';
@@ -23,7 +24,8 @@ export class AppComponent {
   constructor() {
     this.inputVerhaal = new Verhaal();
     this.transformaties = [
-      new LangereWoordenGrotereLetters()
+      new LangereWoordenGrotereLettersTransform(),
+      new VerwijderKlinkersTransform()
     ];
 
     this.form = new FormGroup({
@@ -35,12 +37,8 @@ export class AppComponent {
     });
 
     this.form.valueChanges.subscribe(v => {
-      this.onTransform();
+      this.transform(this.convertInput());
     });
-  }
-
-  private onTransform() {
-    this.transform(this.convertInput());
   }
 
   private convertInput(): Verhaal {
@@ -48,8 +46,6 @@ export class AppComponent {
     let woord: string[] = [];
     const characters: string[] = Array.from(this.form.get('inputText').value);
     characters.forEach(c => {
-      console.log('c: ', c);
-      console.log('c === ', c === ' ');
       if (c.trim() === '' || this.punctuationRegex.test(c)) {
         if (woord.length) {
           zinsdelen.push(new Woord(woord));
