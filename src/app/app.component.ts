@@ -6,6 +6,7 @@ import { Woord } from './models/woord';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Verhaal } from './models/verhaal';
 import { IBaseTransform } from './transforms/base.transform';
+import { NewLineTransform } from './transforms/new-line.transform';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +26,8 @@ export class AppComponent {
     this.inputVerhaal = new Verhaal();
     this.transformaties = [
       new LangereWoordenGrotereLettersTransform(),
-      new VerwijderKlinkersTransform()
+      new VerwijderKlinkersTransform(),
+      new NewLineTransform()
     ];
 
     this.form = new FormGroup({
