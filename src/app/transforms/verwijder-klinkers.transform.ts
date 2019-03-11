@@ -8,15 +8,17 @@ export class VerwijderKlinkersTransform extends CheckBoxBaseTransform {
     description = 'Verwijder klinkers';
 
     public internalTransform(verhaal: Verhaal): Verhaal {
-        verhaal.zinsdelen.forEach(z => {
-            const woord = z as Woord;
-            if (z.isWoord) {
-                woord.letters.forEach(l => {
-                    if (l.isKlinker) {
-                        l.isVisible = false;
-                    }
-                });
-            }
+        verhaal.zinnen.forEach(z => {
+            z.zinsdelen.forEach(zd => {
+                const woord = zd as Woord;
+                if (zd.isWoord) {
+                    woord.letters.forEach(l => {
+                        if (l.isKlinker) {
+                            l.isVisible = false;
+                        }
+                    });
+                }
+            });
         });
         return verhaal;
     }

@@ -9,6 +9,7 @@ import { PunctuationComponent } from './components/punctuation/punctuation.compo
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { VerhaalComponent } from './components/verhaal/verhaal.component';
 import { TextareaExpandedComponent } from './components/textarea/textarea-expanded-full.components';
+import { ZinComponent } from './components/zin/zin.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TextareaExpandedComponent } from './components/textarea/textarea-expand
     PunctuationComponent,
     CheckboxComponent,
     VerhaalComponent,
-    TextareaExpandedComponent
+    TextareaExpandedComponent,
+    ZinComponent
   ],
   imports: [
     BrowserModule,

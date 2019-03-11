@@ -8,12 +8,14 @@ export class LangereWoordenGrotereLettersTransform extends CheckBoxBaseTransform
     description = 'Maak langere woorden groter';
 
     protected internalTransform(verhaal: Verhaal): Verhaal {
-        verhaal.zinsdelen.forEach(z => {
-            const woord = z as Woord;
-            if (z.isWoord) {
-                const fontsize = 1 + woord.letters.length * 0.1;
-                woord.fontsize = `${fontsize}em`;
-            }
+        verhaal.zinnen.forEach(z => {
+            z.zinsdelen.forEach(zd => {
+                const woord = zd as Woord;
+                if (zd.isWoord) {
+                    const fontsize = 1 + woord.letters.length * 0.1;
+                    woord.fontsize = `${fontsize}em`;
+                }
+            });
         });
         return verhaal;
     }

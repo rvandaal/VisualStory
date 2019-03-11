@@ -1,0 +1,7 @@
+<ng-container *ngIf="zin">
+  <ng-container *ngFor="let z of zin.zinsdelen">
+    <app-woord *ngIf="z.isWoord" [woord]="z"></app-woord>
+    <app-punctuation *ngIf="z.isPunctuation" [punctuation]="z"></app-punctuation>
+  </ng-container>
+</ng-container>
+<br *ngFor="let item of zin.newLinesArray">

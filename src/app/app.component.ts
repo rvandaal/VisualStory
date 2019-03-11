@@ -1,12 +1,13 @@
 import { VerwijderKlinkersTransform } from './transforms/verwijder-klinkers.transform';
 import { LangereWoordenGrotereLettersTransform } from './transforms/langere-woorden-grotere-letters.transform';
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { Punctuation } from './models/punctuation';
 import { Woord } from './models/woord';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Verhaal } from './models/verhaal';
 import { IBaseTransform } from './transforms/base.transform';
 import { NewLineTransform } from './transforms/new-line.transform';
+import { Zin } from './models/zin';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,7 @@ import { NewLineTransform } from './transforms/new-line.transform';
 export class AppComponent {
 
   punctuationRegex = /[.,:;?! ]/;
+  newLineRegex = /[.!?:;]/;
 
   inputVerhaal: Verhaal;
   outputVerhaal: Verhaal;
@@ -31,6 +33,7 @@ export class AppComponent {
     ];
 
     this.form = new FormGroup({
+      // inputText: new FormControl('Hallo ik ben Rob. Hoe heet jij?')
       inputText: new FormControl(null)
     });
 
@@ -39,12 +42,15 @@ export class AppComponent {
     });
 
     this.form.valueChanges.subscribe(v => {
-      this.transform(this.convertInput());
+      if (this.form.get('inputText').value) {
+        this.transform(this.convertInput());
+      }
     });
   }
 
   private convertInput(): Verhaal {
-    const zinsdelen = [];
+    const zinnen = [];
+    let zinsdelen = [];
     let woord: string[] = [];
     const characters: string[] = Array.from(this.form.get('inputText').value);
     characters.forEach(c => {
@@ -53,7 +59,13 @@ export class AppComponent {
           zinsdelen.push(new Woord(woord));
           woord = [];
         }
-        zinsdelen.push(new Punctuation(c));
+        if (zinsdelen.length) {
+          zinsdelen.push(new Punctuation(c));
+        }
+        if (this.newLineRegex.test(c)) {
+          zinnen.push(new Zin(zinsdelen));
+          zinsdelen = [];
+        }
       } else {
         woord.push(c);
       }
@@ -61,8 +73,11 @@ export class AppComponent {
     if (woord.length) {
       zinsdelen.push(new Woord(woord));
     }
+    if (zinsdelen.length) {
+      zinnen.push(new Zin(zinsdelen));
+    }
     const verhaal = new Verhaal();
-    verhaal.zinsdelen = zinsdelen;
+    verhaal.zinnen = zinnen;
     return verhaal;
   }
 

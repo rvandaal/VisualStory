@@ -1,5 +1,5 @@
-import { Zinsdeel } from './zinsdeel';
+import { Zin } from './zin';
 
 export class Verhaal {
-    zinsdelen: Zinsdeel[];
+    zinnen: Zin[];
 }

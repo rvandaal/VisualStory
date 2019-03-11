@@ -1,7 +1,6 @@
 import { Verhaal } from './../models/verhaal';
 import { IBaseTransform } from './base.transform';
 import { FormControl } from '@angular/forms';
-import { Woord } from '../models/woord';
 
 export abstract class CheckBoxBaseTransform implements IBaseTransform {
 
