@@ -10,6 +10,7 @@ import { CheckboxComponent } from './components/checkbox/checkbox.component';
 import { VerhaalComponent } from './components/verhaal/verhaal.component';
 import { TextareaExpandedComponent } from './components/textarea/textarea-expanded-full.components';
 import { ZinComponent } from './components/zin/zin.component';
+import { RuleComponent } from './rule/rule.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ZinComponent } from './components/zin/zin.component';
     CheckboxComponent,
     VerhaalComponent,
     TextareaExpandedComponent,
-    ZinComponent
+    ZinComponent,
+    RuleComponent
   ],
   imports: [
     BrowserModule,

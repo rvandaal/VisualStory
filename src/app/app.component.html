@@ -2,9 +2,16 @@
   <div id="text-area-grid" [formGroup]="form">
     <app-textarea #input id="input" [formControl]="form.get('inputText')"></app-textarea>
     <div id="output">
-      <app-verhaal [verhaal]="outputVerhaal"></app-verhaal>
+      <app-verhaal [verhaal]="outputVerhaal" 
+        [style.font-family]="form.get('dyslexiefont').value ? 'dyslexieregular' : 'Arial'"
+        [style.font-weight]="form.get('bold').value ? 'bold' : 'normal'"
+        [style.font-style]="form.get('italic').value ? 'italic' : 'normal'"></app-verhaal>
     </div>
   </div>
   <form id="config-grid">
+    <app-checkbox [form]="form" [controlName]="'dyslexiefont'">Gebruik dyslexie lettertype</app-checkbox>
+    <app-checkbox [form]="form" [controlName]="'bold'">Alles dikgedrukt</app-checkbox>
+    <app-checkbox [form]="form" [controlName]="'italic'">Alles schuingedrukt</app-checkbox>
     <app-checkbox *ngFor="let t of transformaties" [form]="form" [controlName]="t.name">{{t.description}}</app-checkbox>
+    <app-rule *ngFor="let rule of rules" [rule]="rule"></app-rule>
 </form>

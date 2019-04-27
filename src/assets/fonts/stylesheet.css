@@ -1,0 +1,39 @@
+@font-face {
+	font-family: 'dyslexieitalic';
+	src: url('Dyslexie-Italic.eot');
+	src: url('Dyslexie-Italic.eot?#iefix') format('embedded-opentype'),
+		url('Dyslexie-Italic.woff') format('woff'),
+		url('Dyslexie-Italic.ttf') format('truetype');
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'dyslexiebold_italic';
+	src: url('Dyslexie-BoldItalic.eot');
+	src: url('Dyslexie-BoldItalic.eot?#iefix') format('embedded-opentype'),
+		url('Dyslexie-BoldItalic.woff') format('woff'),
+		url('Dyslexie-BoldItalic.ttf') format('truetype');
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'dyslexieregular';
+	src: url('Dyslexie-Regular.eot');
+	src: url('Dyslexie-Regular.eot?#iefix') format('embedded-opentype'),
+		url('Dyslexie-Regular.woff') format('woff'),
+		url('Dyslexie-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'dyslexiebold';
+	src: url('Dyslexie-Bold.eot');
+	src: url('Dyslexie-Bold.eot?#iefix') format('embedded-opentype'),
+		url('Dyslexie-Bold.woff') format('woff'),
+		url('Dyslexie-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}

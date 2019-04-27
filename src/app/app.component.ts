@@ -8,6 +8,8 @@ import { Verhaal } from './models/verhaal';
 import { IBaseTransform } from './transforms/base.transform';
 import { NewLineTransform } from './transforms/new-line.transform';
 import { Zin } from './models/zin';
+import { RangeValueAccessor } from '@angular/forms/src/directives';
+import { Rule } from './models/rule';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +26,8 @@ export class AppComponent {
   transformaties: IBaseTransform[];
   form: FormGroup;
 
+  rules: Rule[];
+
   constructor() {
     this.inputVerhaal = new Verhaal();
     this.transformaties = [
@@ -34,7 +38,10 @@ export class AppComponent {
 
     this.form = new FormGroup({
       // inputText: new FormControl('Hallo ik ben Rob. Hoe heet jij?')
-      inputText: new FormControl(null)
+      inputText: new FormControl(null),
+      dyslexiefont: new FormControl(false),
+      bold: new FormControl(false),
+      italic: new FormControl(false)
     });
 
     this.transformaties.forEach(t => {
@@ -46,6 +53,8 @@ export class AppComponent {
         this.transform(this.convertInput());
       }
     });
+
+    // this.rules = [ new Rule(), new Rule()];
   }
 
   private convertInput(): Verhaal {
